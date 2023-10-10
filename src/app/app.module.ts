@@ -7,14 +7,13 @@ import { EditorComponent } from './pages/editor/editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HeaderComponent,
     EditorComponent,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
