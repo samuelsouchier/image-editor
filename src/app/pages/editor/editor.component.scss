@@ -1,0 +1,38 @@
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+:host {
+  padding: $spacing-xxl;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.toolbar,
+.artboard {
+  border-radius: $border-radius-l;
+  border: 1px solid rgba($color-primary, .4);
+}
+
+.toolbar {
+  padding: $spacing-xs;
+  background: $color-white;
+  margin-bottom: $spacing-l;
+  &-tool {
+    cursor: pointer;
+    padding: $spacing-xs;
+    border-radius: $border-radius;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    transition: .2s ease-in;
+    &:hover {
+      background: rgba($color-primary, 0.2);
+    }
+  }
+}
+
+.artboard {
+  flex: 1;
+  background: rgb(246, 246, 246);
+  background: linear-gradient(120deg, rgb(227, 227, 232) 0%, rgb(245, 245, 250) 19%, rgb(229, 229, 234) 45%, rgb(241, 241, 246) 78%, rgb(231, 231, 236) 100%);
+}
