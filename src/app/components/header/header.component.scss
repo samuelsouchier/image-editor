@@ -1,0 +1,12 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing $spacing-l;
+  background: $color-primary;
+  color: $color-background;
+}
