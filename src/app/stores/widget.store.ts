@@ -12,6 +12,7 @@ export class WidgetStore {
   selectWidget(widget: ArtboardWidgetImage) {
     if (this.selectedWidget()?.id !== widget.id) {
       this.selectedWidget.set(widget);
+      this.images.update(images => [...images.filter(image => image.id !== widget.id), widget]);
     }
   }
 

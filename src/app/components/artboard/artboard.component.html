@@ -1,0 +1,31 @@
+<section class="artboard" #artboard>
+  <div
+    *ngFor="let image of images(); trackBy:widgetById"
+    class="artboard-widget-wrapper"
+    cdkDrag
+    cdkDragBoundary=".artboard"
+    [ngStyle]="{
+        'top': image.position.y + 'px',
+        'left': image.position.x + 'px',
+      }"
+  >
+    <button
+      class="artboard-widget"
+      [ngClass]="{selected: selectedWidget()?.id === image.id}"
+      [ngStyle]="{
+        'transform': 'rotate(' + image.rotation +'deg)',
+        'height': image.height + 'px',
+      }"
+      (click)="selectWidget(image)"
+      (keyup.enter)="selectWidget(image)"
+    >
+      <img [src]="image.src" [alt]="image.name">
+      <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>
+        <app-icon iconName="move" />
+      </button>
+      <button class="artboard-widget-action artboard-widget-resize" cdkDragHandle>
+        <app-icon iconName="maximize" />
+      </button>
+    </button>
+  </div>
+</section>
