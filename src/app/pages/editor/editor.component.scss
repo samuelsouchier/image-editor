@@ -12,46 +12,9 @@
   display: none;
 }
 
-.toolbar,
 .artboard {
   border-radius: $border-radius-l;
   border: 1px solid rgba($color-primary, .4);
-}
-
-.toolbar {
-  padding: $spacing-xs;
-  background: $color-white;
-  margin-bottom: $spacing-l;
-  display: flex;
-
-  &-group {
-    &:not(:last-child) {
-      border-right: 1px solid rgba($color-primary, 0.3);
-      padding-right: $spacing;
-    }
-    &:not(:first-child) {
-      padding-left: $spacing;
-    }
-  }
-
-  &-tool {
-    cursor: pointer;
-    padding: $spacing-xs;
-    border-radius: $border-radius;
-    display: inline-block;
-    width: fit-content;
-    height: fit-content;
-    transition: .2s ease-in;
-    background: transparent;
-    border: none;
-    color: $color-primary;
-    &:hover {
-      background: rgba($color-primary, 0.2);
-    }
-  }
-}
-
-.artboard {
   position: relative;
   flex: 1;
   background: rgb(246, 246, 246);

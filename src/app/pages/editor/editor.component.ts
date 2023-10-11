@@ -1,23 +1,27 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 import { TooltipDirective } from '../../directives/tooltip.directive';
 import { ArtboardWidgetImage } from '../../model/artboard-widget';
+import { WidgetStore } from '../../stores/widget.store';
 
 const BASE_IMAGE_HEIGHT = 300;
 @Component({
   selector: 'app-editor',
   standalone: true,
-  imports: [CommonModule, IconComponent, TooltipDirective, DragDropModule],
+  imports: [CommonModule, IconComponent, TooltipDirective, DragDropModule, ToolbarComponent],
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent {
-  images: WritableSignal<ArtboardWidgetImage[]> = signal([]);
-  selectedWidget: WritableSignal<ArtboardWidgetImage | null> = signal(null);
+  images = this.widgetStore.images;
+  selectedWidget = this.widgetStore.selectedWidget;
 
   @ViewChild('artboard') artboard: ElementRef;
+
+  constructor(private widgetStore: WidgetStore) {}
 
   onSelectFile(input: EventTarget | null) {
     if (input) {
@@ -47,32 +51,11 @@ export class EditorComponent {
     }
   }
 
-  selectWidget(widget: ArtboardWidgetImage) {
-    if (this.selectedWidget()?.id !== widget.id) {
-      this.selectedWidget.set(widget);
-    }
-  }
-
   widgetById(_: number, widget: ArtboardWidgetImage) {
     return widget.id;
   }
 
-  clearSelectedWidget() {
-    this.selectedWidget.set(null);
-  }
-
-  deleteWidget() {
-    this.images.update(widgets => widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
-    this.selectedWidget.set(null);
-  }
-
-  rotateWidget(direction: 'forward' | 'backward') {
-    const rotationModifier = 90 * (direction === 'forward' ? 1 : -1);
-    this.images.update(widgets =>
-      widgets.map(widget =>
-        widget.id === this.selectedWidget()?.id ?
-          {...widget, rotation : widget.rotation + rotationModifier} :
-          widget
-      ));
+  selectWidget(widget: ArtboardWidgetImage) {
+    this.widgetStore.selectWidget(widget);
   }
 }

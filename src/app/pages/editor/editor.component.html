@@ -1,30 +1,5 @@
 <input accept="image/*" class="file-upload" type="file" (change)="onSelectFile($event.target)" #fileUpload>
-<section class="toolbar">
-  <div class="toolbar-group">
-    <button class="toolbar-tool" tooltip="Add image" position="bottom" (click)="fileUpload.click()">
-      <app-icon iconName="image" />
-    </button>
-    <button class="toolbar-tool" tooltip="Add text" position="bottom">
-      <app-icon iconName="type" />
-    </button>
-  </div>
-  <div class="toolbar-group" *ngIf="selectedWidget()">
-    <button class="toolbar-tool" tooltip="Delete item" position="bottom" (click)="deleteWidget()" (keyup.enter)="deleteWidget()">
-      <app-icon iconName="trash" />
-    </button>
-    <button class="toolbar-tool" tooltip="Unselect" position="bottom" (click)="clearSelectedWidget()" (keyup.enter)="clearSelectedWidget()">
-      <app-icon iconName="clear" />
-    </button>
-  </div>
-  <div class="toolbar-group" *ngIf="selectedWidget()">
-    <button class="toolbar-tool" tooltip="Rotate backward" position="bottom" (click)="rotateWidget('backward')" (keyup.enter)="rotateWidget('backward')">
-      <app-icon iconName="rotateBack" />
-    </button>
-    <button class="toolbar-tool" tooltip="Rotate forward" position="bottom" (click)="rotateWidget('forward')" (keyup.enter)="rotateWidget('forward')">
-      <app-icon iconName="rotateForward" />
-    </button>
-  </div>
-</section>
+<app-toolbar (selectFile)="fileUpload.click()"/>
 <section class="artboard" #artboard>
   <div
     *ngFor="let image of images(); trackBy:widgetById"
