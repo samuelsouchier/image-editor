@@ -1,0 +1,484 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarComponent should match snapshot 1`] = `
+<app-toolbar
+  imageBlur={[Function Function]}
+  imageBrightness={[Function Function]}
+  imageContrast={[Function Function]}
+  imageGrayscale={[Function Function]}
+  imageSepia={[Function Function]}
+  selectFile={[Function EventEmitter_]}
+  selectedWidget={[Function Function]}
+  widgetStore={[Function Object]}
+>
+  <section
+    class="toolbar"
+  >
+    <div
+      class="toolbar-group"
+    >
+      <button
+        class="toolbar-tool"
+        position="bottom"
+        tooltip="Add image"
+      >
+        <app-icon
+          iconname="image"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-image"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="18"
+                rx="2"
+                ry="2"
+                width="18"
+                x="3"
+                y="3"
+              />
+              <circle
+                cx="8.5"
+                cy="8.5"
+                r="1.5"
+              />
+              <polyline
+                points="21 15 16 10 5 21"
+              />
+            </svg>
+          </div>
+        </app-icon>
+      </button>
+    </div>
+    <div
+      class="toolbar-group"
+    >
+      <button
+        class="toolbar-tool"
+        position="bottom"
+        tooltip="Delete item"
+      >
+        <app-icon
+          iconname="trash"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-trash"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="3 6 5 6 21 6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </div>
+        </app-icon>
+      </button>
+      <button
+        class="toolbar-tool"
+        position="bottom"
+        tooltip="Unselect"
+      >
+        <app-icon
+          iconname="clear"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-x-circle"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+              />
+              <line
+                x1="15"
+                x2="9"
+                y1="9"
+                y2="15"
+              />
+              <line
+                x1="9"
+                x2="15"
+                y1="9"
+                y2="15"
+              />
+            </svg>
+          </div>
+        </app-icon>
+      </button>
+    </div>
+    <div
+      class="toolbar-group"
+    >
+      <button
+        class="toolbar-tool"
+        position="bottom"
+        tooltip="Rotate backward"
+      >
+        <app-icon
+          iconname="rotateBack"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-corner-left-down"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="14 15 9 20 4 15"
+              />
+              <path
+                d="M20 4h-7a4 4 0 0 0-4 4v12"
+              />
+            </svg>
+          </div>
+        </app-icon>
+      </button>
+      <button
+        class="toolbar-tool"
+        position="bottom"
+        tooltip="Rotate forward"
+      >
+        <app-icon
+          iconname="rotateForward"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-corner-right-down"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="10 15 15 20 20 15"
+              />
+              <path
+                d="M4 4h7a4 4 0 0 1 4 4v12"
+              />
+            </svg>
+          </div>
+        </app-icon>
+      </button>
+    </div>
+    <div
+      class="toolbar-group"
+    >
+      <button
+        class="toolbar-tool"
+        position="top"
+        tooltip="Adjust brightness"
+      >
+        <app-icon
+          iconname="brightness"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-sun"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+              />
+              <line
+                x1="12"
+                x2="12"
+                y1="1"
+                y2="3"
+              />
+              <line
+                x1="12"
+                x2="12"
+                y1="21"
+                y2="23"
+              />
+              <line
+                x1="4.22"
+                x2="5.64"
+                y1="4.22"
+                y2="5.64"
+              />
+              <line
+                x1="18.36"
+                x2="19.78"
+                y1="18.36"
+                y2="19.78"
+              />
+              <line
+                x1="1"
+                x2="3"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="21"
+                x2="23"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="4.22"
+                x2="5.64"
+                y1="19.78"
+                y2="18.36"
+              />
+              <line
+                x1="18.36"
+                x2="19.78"
+                y1="5.64"
+                y2="4.22"
+              />
+            </svg>
+          </div>
+        </app-icon>
+        <span
+          class="toolbar-tool-slider"
+        >
+          <input
+            class="toolbar-tool-slider-input"
+            max="500"
+            min="0"
+            type="range"
+          />
+        </span>
+      </button>
+      <button
+        class="toolbar-tool"
+        position="top"
+        tooltip="Adjust blur"
+      >
+        <app-icon
+          iconname="blur"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-droplet"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"
+              />
+            </svg>
+          </div>
+        </app-icon>
+        <span
+          class="toolbar-tool-slider"
+        >
+          <input
+            class="toolbar-tool-slider-input"
+            max="1000"
+            min="0"
+            type="range"
+          />
+        </span>
+      </button>
+      <button
+        class="toolbar-tool"
+        position="top"
+        tooltip="Adjust contrast"
+      >
+        <app-icon
+          iconname="contrast"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-moon"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              />
+            </svg>
+          </div>
+        </app-icon>
+        <span
+          class="toolbar-tool-slider"
+        >
+          <input
+            class="toolbar-tool-slider-input"
+            max="500"
+            min="0"
+            type="range"
+          />
+        </span>
+      </button>
+      <button
+        class="toolbar-tool"
+        position="top"
+        tooltip="Adjust grayscale"
+      >
+        <app-icon
+          iconname="blackWhite"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-copy"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="13"
+                rx="2"
+                ry="2"
+                width="13"
+                x="9"
+                y="9"
+              />
+              <path
+                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+              />
+            </svg>
+          </div>
+        </app-icon>
+        <span
+          class="toolbar-tool-slider"
+        >
+          <input
+            class="toolbar-tool-slider-input"
+            max="100"
+            min="0"
+            type="range"
+          />
+        </span>
+      </button>
+      <button
+        class="toolbar-tool"
+        position="top"
+        tooltip="Adjust sepia"
+      >
+        <app-icon
+          iconname="sepia"
+        >
+          <div
+            class="icon"
+          >
+            <svg
+              class="feather feather-camera"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+              />
+              <circle
+                cx="12"
+                cy="13"
+                r="4"
+              />
+            </svg>
+          </div>
+        </app-icon>
+        <span
+          class="toolbar-tool-slider"
+        >
+          <input
+            class="toolbar-tool-slider-input"
+            max="100"
+            min="0"
+            type="range"
+          />
+        </span>
+      </button>
+    </div>
+  </section>
+</app-toolbar>
+`;
