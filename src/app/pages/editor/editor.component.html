@@ -1,14 +1,33 @@
-<ul class="toolbar">
-  <li class="toolbar-tool" tooltip="Add image" position="bottom">
+<input accept="image/*" class="file-upload" type="file" (change)="onSelectFile($event.target)" #fileUpload>
+<section class="toolbar">
+  <button class="toolbar-tool" tooltip="Add image" position="bottom" (click)="fileUpload.click()">
     <app-icon iconName="image" />
-  </li>
-  <li class="toolbar-tool" tooltip="Add text" position="bottom">
+  </button>
+  <button class="toolbar-tool" tooltip="Add text" position="bottom">
     <app-icon iconName="type" />
-  </li>
-  <li class="toolbar-tool" tooltip="Delete item" position="bottom">
+  </button>
+  <button class="toolbar-tool" tooltip="Delete item" position="bottom">
     <app-icon iconName="trash" />
-  </li>
-</ul>
-<div class="artboard">
-
-</div>
+  </button>
+</section>
+<section class="artboard" #artboard>
+  <div
+    *ngFor="let image of images"
+    cdkDrag
+    cdkDragBoundary=".artboard"
+    class="artboard-widget"
+    [ngStyle]="{
+      'top': image.position.y + 'px',
+      'left': image.position.x + 'px',
+      'height': image.height + 'px',
+    }"
+  >
+    <img [src]="image.src" [alt]="image.name">
+    <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>
+      <app-icon iconName="move" />
+    </button>
+    <button class="artboard-widget-action artboard-widget-resize" cdkDragHandle>
+      <app-icon iconName="maximize" />
+    </button>
+  </div>
+</section>
