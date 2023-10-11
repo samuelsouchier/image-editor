@@ -1,6 +1,6 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { TooltipDirective } from '../../directives/tooltip.directive';
 import { ArtboardWidgetImage } from '../../model/artboard-widget';
@@ -14,7 +14,7 @@ const BASE_IMAGE_HEIGHT = 300;
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent {
-  images: ArtboardWidgetImage[] = [];
+  images: WritableSignal<ArtboardWidgetImage[]> = signal([]);
 
   @ViewChild('artboard') artboard: ElementRef;
 
@@ -36,7 +36,7 @@ export class EditorComponent {
               },
               height: BASE_IMAGE_HEIGHT,
             };
-            this.images.push(image);
+            this.images.update(images => [...images, image]);
           }
         });
 
