@@ -41,14 +41,15 @@ export class ArtboardComponent {
     if (file) {
       reader.addEventListener('load', (event: ProgressEvent<FileReader>) => {
         if (typeof event.target?.result === "string") {
+          const positionRandomizer = Math.floor(Math.random() * 100) * 2;
           const hostPosition = this.artboard.nativeElement.getBoundingClientRect();
           const image: ArtboardWidgetImage = {
             id: crypto.randomUUID(),
             src: event.target?.result,
             name: file.name,
             position: {
-              x: hostPosition.width / 3,
-              y: hostPosition.height / 3,
+              x: Math.floor(hostPosition.width / 4) + positionRandomizer,
+              y: Math.floor(hostPosition.height / 4) + positionRandomizer,
             },
             height: BASE_IMAGE_HEIGHT,
             rotation: 0,
