@@ -15,6 +15,7 @@ const BASE_IMAGE_HEIGHT = 300;
 })
 export class EditorComponent {
   images: WritableSignal<ArtboardWidgetImage[]> = signal([]);
+  selectedWidget: WritableSignal<ArtboardWidgetImage | null> = signal(null);
 
   @ViewChild('artboard') artboard: ElementRef;
 
@@ -45,7 +46,21 @@ export class EditorComponent {
     }
   }
 
+  selectWidget(widget: ArtboardWidgetImage) {
+    if (this.selectedWidget()?.id !== widget.id) {
+      this.selectedWidget.set(widget);
+    }
+  }
+
   widgetById(_: number, widget: ArtboardWidgetImage) {
     return widget.id;
+  }
+
+  clearSelectedWidget() {
+    this.selectedWidget.set(null);
+  }
+
+  deleteWidget() {
+    this.images.update(widgets => widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
   }
 }

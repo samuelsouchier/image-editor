@@ -1,3 +1,4 @@
+import { clearIcon } from '../../assets/icons/clear';
 import { cropIcon } from '../../assets/icons/crop';
 import { imageIcon } from '../../assets/icons/image';
 import { maximizeIcon } from '../../assets/icons/maximize';
@@ -5,7 +6,7 @@ import { moveIcon } from '../../assets/icons/move';
 import { trashIcon } from '../../assets/icons/trash';
 import { typeIcon } from '../../assets/icons/type';
 
-export type IconName = 'image' | 'trash' | 'crop' | 'type' | 'maximize' | 'move';
+export type IconName = 'image' | 'trash' | 'crop' | 'type' | 'maximize' | 'move' | 'clear';
 export const iconByNameMapper: Record<IconName, string> = {
   'image': imageIcon,
   'trash': trashIcon,
@@ -13,4 +14,5 @@ export const iconByNameMapper: Record<IconName, string> = {
   'crop': cropIcon,
   'maximize': maximizeIcon,
   'move': moveIcon,
+  'clear': clearIcon,
 };
