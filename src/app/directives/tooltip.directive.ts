@@ -24,6 +24,12 @@ export class TooltipDirective {
     }
   }
 
+  @HostListener('mouseup') onMouseUp() {
+    if (this.tooltip) {
+      this.hide();
+    }
+  }
+
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   create() {

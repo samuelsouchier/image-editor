@@ -63,6 +63,7 @@ export class EditorComponent {
 
   deleteWidget() {
     this.images.update(widgets => widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
+    this.selectedWidget.set(null);
   }
 
   rotateWidget(direction: 'forward' | 'backward') {
