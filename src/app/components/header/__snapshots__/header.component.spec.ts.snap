@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should match snapshot 1`] = `
+<app-header>
+  <header
+    class="header"
+  >
+    <h1
+      class="header-title"
+    >
+      Simple image editor
+    </h1>
+  </header>
+</app-header>
+`;
