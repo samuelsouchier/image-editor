@@ -5,6 +5,8 @@ import { ArtboardComponent } from '../../components/artboard/artboard.component'
 import { IconComponent } from '../../components/icon/icon.component';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 import { TooltipDirective } from '../../directives/tooltip.directive';
+import { UploadedFile } from '../../model/UploadedFile';
+import { WidgetStore } from '../../stores/widget.store';
 
 @Component({
   selector: 'app-editor',
@@ -14,13 +16,16 @@ import { TooltipDirective } from '../../directives/tooltip.directive';
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent {
-  selectedFile: File | null;
+  selectedFile = this.widgetStore.selectedFile;
 
   @ViewChild('artboard') artboard: ElementRef;
 
+  constructor(private widgetStore: WidgetStore) {}
   onSelectFile(input: EventTarget | null) {
     if (input) {
-      this.selectedFile = (input as HTMLInputElement).files?.item(0) ?? null;
+      const file = (input as HTMLInputElement).files?.item(0);
+      const uploadFile: UploadedFile | null = file ? {id: crypto.randomUUID(), file: file} : null;
+      this.selectedFile.update(() => uploadFile);
     }
   }
 }

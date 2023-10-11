@@ -1,4 +1,5 @@
 import { computed, Injectable, signal, WritableSignal } from '@angular/core';
+import { UploadedFile } from '../model/UploadedFile';
 import { ArtboardWidgetImage } from '../model/artboard-widget';
 
 @Injectable({
@@ -9,6 +10,7 @@ export class WidgetStore {
   images: WritableSignal<ArtboardWidgetImage[]> = signal([]);
   selectedWidget = computed(() => this.images().find(widget => widget.id === this.selectedWidgetId()));
   selectedWidgetId: WritableSignal<string | null> = signal(null);
+  selectedFile: WritableSignal<UploadedFile | null> = signal(null);
 
   selectWidget(widget: ArtboardWidgetImage) {
     if (this.selectedWidgetId() !== widget.id) {
