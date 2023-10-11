@@ -1,4 +1,5 @@
 <section class="artboard" #artboard>
+  <div class="artboard-backdrop" (click)="clearSelectedWidget()"></div>
   <div
     *ngFor="let image of images(); trackBy:widgetById"
     class="artboard-widget-wrapper"

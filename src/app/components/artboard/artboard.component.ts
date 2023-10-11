@@ -68,4 +68,8 @@ export class ArtboardComponent {
       reader.readAsDataURL(file);
     }
   }
+
+  clearSelectedWidget() {
+    this.widgetStore.clearSelectedWidget();
+  }
 }
