@@ -23,7 +23,7 @@
         [src]="image.src"
         [alt]="image.name"
         [ngStyle]="{
-        'filter': 'brightness(' + image.filters.brightness + ')',
+        'filter': 'brightness(' + image.filters.brightness + ') blur(' + image.filters.blur + 'px)',
       }"
       >
       <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>

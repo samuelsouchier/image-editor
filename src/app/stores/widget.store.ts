@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { computed, Injectable, signal, WritableSignal } from '@angular/core';
 import { ArtboardWidgetImage } from '../model/artboard-widget';
 
 @Injectable({
@@ -7,11 +7,12 @@ import { ArtboardWidgetImage } from '../model/artboard-widget';
 export class WidgetStore {
 
   images: WritableSignal<ArtboardWidgetImage[]> = signal([]);
-  selectedWidget: WritableSignal<ArtboardWidgetImage | null> = signal(null);
+  selectedWidget = computed(() => this.images().find(widget => widget.id === this.selectedWidgetId()));
+  selectedWidgetId: WritableSignal<string | null> = signal(null);
 
   selectWidget(widget: ArtboardWidgetImage) {
-    if (this.selectedWidget()?.id !== widget.id) {
-      this.selectedWidget.set(widget);
+    if (this.selectedWidgetId() !== widget.id) {
+      this.selectedWidgetId.set(widget.id);
       this.images.update(images => [...images.filter(image => image.id !== widget.id), widget]);
     }
   }
@@ -20,20 +21,20 @@ export class WidgetStore {
     const rotationModifier = 90 * (direction === 'forward' ? 1 : -1);
     this.images.update(widgets =>
       widgets.map(widget =>
-        widget.id === this.selectedWidget()?.id ?
+        widget.id === this.selectedWidgetId() ?
           {...widget, rotation : widget.rotation + rotationModifier} :
           widget
       ));
   }
 
   clearSelectedWidget() {
-    this.selectedWidget.set(null);
+    this.selectedWidgetId.set(null);
   }
 
   deleteWidget() {
     this.images.update(widgets =>
-      widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
-    this.selectedWidget.set(null);
+      widgets.filter(widget => widget.id !== this.selectedWidgetId()));
+    this.selectedWidgetId.set(null);
   }
 
   updateWidget(newWidget: ArtboardWidgetImage) {

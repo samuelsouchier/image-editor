@@ -30,5 +30,11 @@
         <input type="range" class="toolbar-tool-slider-input" (change)="brightnessChange($event)" min="0" max="500" [value]="imageBrightness()">
       </span>
     </button>
+    <button class="toolbar-tool" tooltip="Adjust blur" position="top">
+      <app-icon iconName="blur" />
+      <span class="toolbar-tool-slider">
+        <input type="range" class="toolbar-tool-slider-input" (change)="blurChange($event)" min="0" max="1000" [value]="imageBlur()">
+      </span>
+    </button>
   </div>
 </section>

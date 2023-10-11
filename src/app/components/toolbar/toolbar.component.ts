@@ -15,6 +15,7 @@ import { IconComponent } from '../icon/icon.component';
 export class ToolbarComponent {
   selectedWidget = this.widgetStore.selectedWidget;
   imageBrightness = computed(() => ((this.selectedWidget()?.filters.brightness ?? 1) * 100) ?? 100);
+  imageBlur = computed(() => ((this.selectedWidget()?.filters.blur ?? 0) * 100) ?? 0);
 
   @Output() selectFile = new EventEmitter<void>();
 
@@ -36,6 +37,17 @@ export class ToolbarComponent {
       const newBrightness = parseInt(inputValue) / 100;
       if (this.selectedWidget()) {
         const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, brightness: newBrightness}};
+        this.widgetStore.updateWidget(newWidget);
+      }
+    }
+  }
+
+  blurChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    if (inputValue) {
+      const newBlur = parseInt(inputValue) / 100;
+      if (this.selectedWidget()) {
+        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, blur: newBlur}};
         this.widgetStore.updateWidget(newWidget);
       }
     }

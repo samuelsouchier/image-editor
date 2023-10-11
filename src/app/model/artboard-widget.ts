@@ -5,6 +5,8 @@ export interface ArtboardWidgetPosition {
 
 export interface ArtboardWidgetFilters {
   brightness?: number,
+  blur?: number,
+  contrast?: number,
 }
 
 export interface ArtboardWidgetImage {
