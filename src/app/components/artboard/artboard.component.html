@@ -1,5 +1,5 @@
 <section class="artboard" #artboard>
-  <div class="artboard-backdrop" (click)="clearSelectedWidget()"></div>
+  <button class="artboard-backdrop" (click)="clearSelectedWidget()" (keyup.enter)="clearSelectedWidget()"> </button>
   <div
     *ngFor="let image of images(); trackBy:widgetById"
     class="artboard-widget-wrapper"
