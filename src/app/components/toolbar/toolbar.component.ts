@@ -15,6 +15,7 @@ import { IconComponent } from '../icon/icon.component';
 export class ToolbarComponent {
   selectedWidget = this.widgetStore.selectedWidget;
   imageBrightness = computed(() => ((this.selectedWidget()?.filters.brightness ?? 1) * 100) ?? 100);
+  imageContrast = computed(() => ((this.selectedWidget()?.filters.contrast ?? 1) * 100) ?? 100);
   imageBlur = computed(() => ((this.selectedWidget()?.filters.blur ?? 0) * 100) ?? 0);
 
   @Output() selectFile = new EventEmitter<void>();
@@ -32,7 +33,7 @@ export class ToolbarComponent {
   }
 
   brightnessChange(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
+    const inputValue = this.#getInputValue(event);
     if (inputValue) {
       const newBrightness = parseInt(inputValue) / 100;
       if (this.selectedWidget()) {
@@ -42,8 +43,19 @@ export class ToolbarComponent {
     }
   }
 
+  contrastChange(event: Event) {
+    const inputValue = this.#getInputValue(event);
+    if (inputValue) {
+      const newContrast = parseInt(inputValue) / 100;
+      if (this.selectedWidget()) {
+        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, contrast: newContrast}};
+        this.widgetStore.updateWidget(newWidget);
+      }
+    }
+  }
+
   blurChange(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
+    const inputValue = this.#getInputValue(event);
     if (inputValue) {
       const newBlur = parseInt(inputValue) / 100;
       if (this.selectedWidget()) {
@@ -53,4 +65,7 @@ export class ToolbarComponent {
     }
   }
 
+  #getInputValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
 }

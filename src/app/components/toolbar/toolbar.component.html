@@ -36,5 +36,11 @@
         <input type="range" class="toolbar-tool-slider-input" (change)="blurChange($event)" min="0" max="1000" [value]="imageBlur()">
       </span>
     </button>
+    <button class="toolbar-tool" tooltip="Adjust contrast" position="top">
+      <app-icon iconName="contrast" />
+      <span class="toolbar-tool-slider">
+        <input type="range" class="toolbar-tool-slider-input" (change)="contrastChange($event)" min="0" max="500" [value]="imageContrast()">
+      </span>
+    </button>
   </div>
 </section>
