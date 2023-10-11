@@ -9,4 +9,5 @@ export interface ArtboardWidgetImage {
   name: string;
   position: ArtboardWidgetPosition;
   height: number;
+  rotation: number;
 }

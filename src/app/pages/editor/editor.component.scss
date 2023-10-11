@@ -60,15 +60,23 @@
   &-widget {
     position: absolute;
     display: flex;
-    resize: vertical;
     overflow: hidden;
     border: 2px solid transparent;
     transition: box-shadow .3s ease-in, border .2s ease-in;
     cursor: pointer;
     padding: 0;
     background: transparent;
+    height: fit-content;
+    width: fit-content;
+    resize: vertical;
+    &-wrapper {
+      height: fit-content;
+      width: fit-content;
+      position: absolute;
+    }
     img {
-      object-fit: contain;
+      height: 100%;
+      width: auto;
     }
     &-action {
       position: absolute;

@@ -16,28 +16,43 @@
       <app-icon iconName="clear" />
     </button>
   </div>
+  <div class="toolbar-group" *ngIf="selectedWidget()">
+    <button class="toolbar-tool" tooltip="Rotate backward" position="bottom" (click)="rotateWidget('backward')" (keyup.enter)="rotateWidget('backward')">
+      <app-icon iconName="rotateBack" />
+    </button>
+    <button class="toolbar-tool" tooltip="Rotate forward" position="bottom" (click)="rotateWidget('forward')" (keyup.enter)="rotateWidget('forward')">
+      <app-icon iconName="rotateForward" />
+    </button>
+  </div>
 </section>
 <section class="artboard" #artboard>
-  <button
+  <div
     *ngFor="let image of images(); trackBy:widgetById"
+    class="artboard-widget-wrapper"
     cdkDrag
     cdkDragBoundary=".artboard"
-    class="artboard-widget"
-    [ngClass]="{selected: selectedWidget()?.id === image.id}"
     [ngStyle]="{
-      'top': image.position.y + 'px',
-      'left': image.position.x + 'px',
-      'height': image.height + 'px',
-    }"
-    (click)="selectWidget(image)"
-    (keyup.enter)="selectWidget(image)"
+        'top': image.position.y + 'px',
+        'left': image.position.x + 'px',
+      }"
   >
-    <img [src]="image.src" [alt]="image.name" [height]="image.height">
-    <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>
-      <app-icon iconName="move" />
+    <button
+      class="artboard-widget"
+      [ngClass]="{selected: selectedWidget()?.id === image.id}"
+      [ngStyle]="{
+        'transform': 'rotate(' + image.rotation +'deg)',
+        'height': image.height + 'px',
+      }"
+      (click)="selectWidget(image)"
+      (keyup.enter)="selectWidget(image)"
+    >
+      <img [src]="image.src" [alt]="image.name">
+      <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>
+        <app-icon iconName="move" />
+      </button>
+      <button class="artboard-widget-action artboard-widget-resize" cdkDragHandle>
+        <app-icon iconName="maximize" />
+      </button>
     </button>
-    <button class="artboard-widget-action artboard-widget-resize" cdkDragHandle>
-      <app-icon iconName="maximize" />
-    </button>
-  </button>
+  </div>
 </section>

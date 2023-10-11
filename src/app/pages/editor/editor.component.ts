@@ -36,6 +36,7 @@ export class EditorComponent {
                 y: hostPosition.height / 3,
               },
               height: BASE_IMAGE_HEIGHT,
+              rotation: 0,
             };
             this.images.update(images => [...images, image]);
           }
@@ -62,5 +63,15 @@ export class EditorComponent {
 
   deleteWidget() {
     this.images.update(widgets => widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
+  }
+
+  rotateWidget(direction: 'forward' | 'backward') {
+    const rotationModifier = 90 * (direction === 'forward' ? 1 : -1);
+    this.images.update(widgets =>
+      widgets.map(widget =>
+        widget.id === this.selectedWidget()?.id ?
+          {...widget, rotation : widget.rotation + rotationModifier} :
+          widget
+      ));
   }
 }
