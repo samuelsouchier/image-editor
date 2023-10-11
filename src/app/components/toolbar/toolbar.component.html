@@ -23,4 +23,12 @@
       <app-icon iconName="rotateForward" />
     </button>
   </div>
+  <div class="toolbar-group" *ngIf="selectedWidget()">
+    <button class="toolbar-tool" tooltip="Adjust brightness" position="top">
+      <app-icon iconName="brightness" />
+      <span class="toolbar-tool-slider">
+        <input type="range" class="toolbar-tool-slider-input" (change)="brightnessChange($event)" min="0" max="500" [value]="imageBrightness()">
+      </span>
+    </button>
+  </div>
 </section>

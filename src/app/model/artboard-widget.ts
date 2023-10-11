@@ -3,6 +3,10 @@ export interface ArtboardWidgetPosition {
   y: number,
 }
 
+export interface ArtboardWidgetFilters {
+  brightness?: number,
+}
+
 export interface ArtboardWidgetImage {
   id: string;
   src: string;
@@ -10,4 +14,5 @@ export interface ArtboardWidgetImage {
   position: ArtboardWidgetPosition;
   height: number;
   rotation: number;
+  filters: ArtboardWidgetFilters;
 }

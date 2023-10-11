@@ -19,7 +19,13 @@
       (click)="selectWidget(image)"
       (keyup.enter)="selectWidget(image)"
     >
-      <img [src]="image.src" [alt]="image.name">
+      <img
+        [src]="image.src"
+        [alt]="image.name"
+        [ngStyle]="{
+        'filter': 'brightness(' + image.filters.brightness + ')',
+      }"
+      >
       <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>
         <app-icon iconName="move" />
       </button>

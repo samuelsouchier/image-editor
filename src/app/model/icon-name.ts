@@ -1,3 +1,4 @@
+import { brightnessIcon } from '../../assets/icons/brightness';
 import { clearIcon } from '../../assets/icons/clear';
 import { cropIcon } from '../../assets/icons/crop';
 import { imageIcon } from '../../assets/icons/image';
@@ -8,7 +9,7 @@ import { rotateForwardIcon } from '../../assets/icons/rotate-forward';
 import { trashIcon } from '../../assets/icons/trash';
 import { typeIcon } from '../../assets/icons/type';
 
-export type IconName = 'image' | 'trash' | 'crop' | 'type' | 'maximize' | 'move' | 'clear' | 'rotateBack' | 'rotateForward';
+export type IconName = 'image' | 'trash' | 'crop' | 'type' | 'maximize' | 'move' | 'clear' | 'rotateBack' | 'rotateForward' | 'brightness';
 export const iconByNameMapper: Record<IconName, string> = {
   'image': imageIcon,
   'trash': trashIcon,
@@ -19,4 +20,5 @@ export const iconByNameMapper: Record<IconName, string> = {
   'clear': clearIcon,
   'rotateBack': rotateBackIcon,
   'rotateForward': rotateForwardIcon,
+  'brightness': brightnessIcon,
 };

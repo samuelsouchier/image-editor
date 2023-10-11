@@ -31,7 +31,13 @@ export class WidgetStore {
   }
 
   deleteWidget() {
-    this.images.update(widgets => widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
+    this.images.update(widgets =>
+      widgets.filter(widget => widget.id !== this.selectedWidget()?.id));
     this.selectedWidget.set(null);
+  }
+
+  updateWidget(newWidget: ArtboardWidgetImage) {
+    this.images.update(widgets =>
+      widgets.map(widget => widget.id === newWidget.id ? newWidget : widget));
   }
 }
