@@ -12,7 +12,7 @@
 </section>
 <section class="artboard" #artboard>
   <div
-    *ngFor="let image of images()"
+    *ngFor="let image of images(); trackBy:widgetById"
     cdkDrag
     cdkDragBoundary=".artboard"
     class="artboard-widget"

@@ -44,4 +44,8 @@ export class EditorComponent {
       }
     }
   }
+
+  widgetById(_: number, widget: ArtboardWidgetImage) {
+    return widget.id;
+  }
 }
