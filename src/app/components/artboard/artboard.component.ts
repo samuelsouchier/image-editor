@@ -59,6 +59,8 @@ export class ArtboardComponent implements OnChanges {
                 brightness: 1,
                 blur: 0,
                 contrast: 1,
+                sepia: 0,
+                grayscale: 0,
               }
             };
             this.images.update(images => [...images, image]);

@@ -7,6 +7,8 @@ export interface ArtboardWidgetFilters {
   brightness?: number,
   blur?: number,
   contrast?: number,
+  grayscale?: number,
+  sepia?: number,
 }
 
 export interface ArtboardWidgetImage {

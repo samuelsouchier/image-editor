@@ -16,6 +16,8 @@ export class ToolbarComponent {
   selectedWidget = this.widgetStore.selectedWidget;
   imageBrightness = computed(() => ((this.selectedWidget()?.filters.brightness ?? 1) * 100) ?? 100);
   imageContrast = computed(() => ((this.selectedWidget()?.filters.contrast ?? 1) * 100) ?? 100);
+  imageSepia = computed(() => ((this.selectedWidget()?.filters.sepia ?? 0) * 100) ?? 0);
+  imageGrayscale = computed(() => ((this.selectedWidget()?.filters.grayscale ?? 0) * 100) ?? 0);
   imageBlur = computed(() => ((this.selectedWidget()?.filters.blur ?? 0) * 100) ?? 0);
 
   @Output() selectFile = new EventEmitter<void>();
@@ -60,6 +62,28 @@ export class ToolbarComponent {
       const newBlur = parseInt(inputValue) / 100;
       if (this.selectedWidget()) {
         const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, blur: newBlur}};
+        this.widgetStore.updateWidget(newWidget);
+      }
+    }
+  }
+
+  sepiaChange(event: Event) {
+    const inputValue = this.#getInputValue(event);
+    if (inputValue) {
+      const newSepia = parseInt(inputValue) / 100;
+      if (this.selectedWidget()) {
+        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, sepia: newSepia}};
+        this.widgetStore.updateWidget(newWidget);
+      }
+    }
+  }
+
+  grayscaleChange(event: Event) {
+    const inputValue = this.#getInputValue(event);
+    if (inputValue) {
+      const newGrayscale = parseInt(inputValue) / 100;
+      if (this.selectedWidget()) {
+        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, grayscale: newGrayscale}};
         this.widgetStore.updateWidget(newWidget);
       }
     }

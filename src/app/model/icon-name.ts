@@ -1,3 +1,4 @@
+import { blackWhiteIcon } from '../../assets/icons/black-white';
 import { blurIcon } from '../../assets/icons/blur';
 import { brightnessIcon } from '../../assets/icons/brightness';
 import { clearIcon } from '../../assets/icons/clear';
@@ -8,6 +9,7 @@ import { maximizeIcon } from '../../assets/icons/maximize';
 import { moveIcon } from '../../assets/icons/move';
 import { rotateBackIcon } from '../../assets/icons/rotate-back';
 import { rotateForwardIcon } from '../../assets/icons/rotate-forward';
+import { sepiaIcon } from '../../assets/icons/sepia';
 import { trashIcon } from '../../assets/icons/trash';
 import { typeIcon } from '../../assets/icons/type';
 
@@ -24,6 +26,8 @@ export type IconName =
   | 'brightness'
   | 'blur'
   | 'contrast'
+  | 'blackWhite'
+  | 'sepia'
   ;
 export const iconByNameMapper: Record<IconName, string> = {
   'image': imageIcon,
@@ -38,4 +42,6 @@ export const iconByNameMapper: Record<IconName, string> = {
   'brightness': brightnessIcon,
   'blur': blurIcon,
   'contrast': contrastIcon,
+  'blackWhite': blackWhiteIcon,
+  'sepia': sepiaIcon,
 };

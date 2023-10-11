@@ -42,5 +42,17 @@
         <input type="range" class="toolbar-tool-slider-input" (change)="contrastChange($event)" min="0" max="500" [value]="imageContrast()">
       </span>
     </button>
+    <button class="toolbar-tool" tooltip="Adjust grayscale" position="top">
+      <app-icon iconName="blackWhite" />
+      <span class="toolbar-tool-slider">
+        <input type="range" class="toolbar-tool-slider-input" (change)="grayscaleChange($event)" min="0" max="100" [value]="imageGrayscale()">
+      </span>
+    </button>
+    <button class="toolbar-tool" tooltip="Adjust sepia" position="top">
+      <app-icon iconName="sepia" />
+      <span class="toolbar-tool-slider">
+        <input type="range" class="toolbar-tool-slider-input" (change)="sepiaChange($event)" min="0" max="100" [value]="imageSepia()">
+      </span>
+    </button>
   </div>
 </section>
