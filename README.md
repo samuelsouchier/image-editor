@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This project was created using node v20.7.0
 There is a .nvmrc file at the project root. If you have nvm installed on your computer, just `nvm use` in a terminal at the project root.
 
+To install the dependancies, run `npm i` at the project root.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
