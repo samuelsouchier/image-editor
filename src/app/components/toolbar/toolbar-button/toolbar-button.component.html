@@ -1,0 +1,13 @@
+<button
+  class="toolbar-tool"
+  [tooltip]="tooltipLabel"
+  [position]="tooltipPosition"
+  [disabled]="disabled"
+  (click)="buttonClick.emit()"
+  (keyup.enter)="buttonClick.emit()"
+>
+  <app-icon [iconName]="icon" />
+  <span *ngIf="slider" class="toolbar-tool-slider">
+    <input type="range" class="toolbar-tool-slider-input" (change)="onChange($event)" [min]="sliderMin" [max]="sliderMax" [value]="sliderValue">
+  </span>
+</button>

@@ -22,7 +22,7 @@ exports[`ArtboardComponent should match snapshot 1`] = `
     >
       <button
         class="artboard-widget selected"
-        style="transform: rotate(0deg); height: 300px;"
+        style="transform: rotate(0deg) scale(1); height: 300px;"
       >
         <img
           alt="image-name"
@@ -30,9 +30,7 @@ exports[`ArtboardComponent should match snapshot 1`] = `
           style="filter: brightness(1) blur(0px) sepia(0) grayscale(0) contrast(1);"
         />
         <button
-          cdkdraghandle=""
-          class="cdk-drag-handle artboard-widget-action artboard-widget-move"
-          style="user-select: none;"
+          class="artboard-widget-action artboard-widget-move"
         >
           <app-icon
             iconname="move"
@@ -75,51 +73,6 @@ exports[`ArtboardComponent should match snapshot 1`] = `
                   x2="12"
                   y1="2"
                   y2="22"
-                />
-              </svg>
-            </div>
-          </app-icon>
-        </button>
-        <button
-          cdkdraghandle=""
-          class="cdk-drag-handle artboard-widget-action artboard-widget-resize"
-          style="user-select: none;"
-        >
-          <app-icon
-            iconname="maximize"
-          >
-            <div
-              class="icon"
-            >
-              <svg
-                class="feather feather-maximize-2"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polyline
-                  points="15 3 21 3 21 9"
-                />
-                <polyline
-                  points="9 21 3 21 3 15"
-                />
-                <line
-                  x1="21"
-                  x2="14"
-                  y1="3"
-                  y2="10"
-                />
-                <line
-                  x1="3"
-                  x2="10"
-                  y1="21"
-                  y2="14"
                 />
               </svg>
             </div>

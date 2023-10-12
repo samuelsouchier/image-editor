@@ -5,11 +5,12 @@ import { TooltipDirective } from '../../directives/tooltip.directive';
 import { ArtboardWidgetImage } from '../../model/artboard-widget';
 import { WidgetStore } from '../../stores/widget.store';
 import { IconComponent } from '../icon/icon.component';
+import { ToolbarButtonComponent } from './toolbar-button/toolbar-button.component';
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [CommonModule, IconComponent, TooltipDirective],
+  imports: [CommonModule, IconComponent, TooltipDirective, ToolbarButtonComponent],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
@@ -35,58 +36,38 @@ export class ToolbarComponent {
     this.widgetStore.deleteWidget();
   }
 
-  brightnessChange(event: Event) {
-    const inputValue = this.#getInputValue(event);
-    if (inputValue) {
-      const newBrightness = parseInt(inputValue) / 100;
-      if (this.selectedWidget()) {
-        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, brightness: newBrightness}};
-        this.widgetStore.updateWidget(newWidget);
-      }
+  brightnessChange(inputValue: number) {
+    if (this.selectedWidget()) {
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, brightness: inputValue}};
+      this.widgetStore.updateWidget(newWidget);
     }
   }
 
-  contrastChange(event: Event) {
-    const inputValue = this.#getInputValue(event);
-    if (inputValue) {
-      const newContrast = parseInt(inputValue) / 100;
-      if (this.selectedWidget()) {
-        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, contrast: newContrast}};
-        this.widgetStore.updateWidget(newWidget);
-      }
+  contrastChange(inputValue: number) {
+    if (this.selectedWidget()) {
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, contrast: inputValue}};
+      this.widgetStore.updateWidget(newWidget);
     }
   }
 
-  blurChange(event: Event) {
-    const inputValue = this.#getInputValue(event);
-    if (inputValue) {
-      const newBlur = parseInt(inputValue) / 100;
-      if (this.selectedWidget()) {
-        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, blur: newBlur}};
-        this.widgetStore.updateWidget(newWidget);
-      }
+  blurChange(inputValue: number) {
+    if (this.selectedWidget()) {
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, blur: inputValue}};
+      this.widgetStore.updateWidget(newWidget);
     }
   }
 
-  sepiaChange(event: Event) {
-    const inputValue = this.#getInputValue(event);
-    if (inputValue) {
-      const newSepia = parseInt(inputValue) / 100;
-      if (this.selectedWidget()) {
-        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, sepia: newSepia}};
-        this.widgetStore.updateWidget(newWidget);
-      }
+  sepiaChange(inputValue: number) {
+    if (this.selectedWidget()) {
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, sepia: inputValue}};
+      this.widgetStore.updateWidget(newWidget);
     }
   }
 
-  grayscaleChange(event: Event) {
-    const inputValue = this.#getInputValue(event);
-    if (inputValue) {
-      const newGrayscale = parseInt(inputValue) / 100;
-      if (this.selectedWidget()) {
-        const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, grayscale: newGrayscale}};
-        this.widgetStore.updateWidget(newWidget);
-      }
+  grayscaleChange(inputValue: number) {
+    if (this.selectedWidget()) {
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, grayscale: inputValue}};
+      this.widgetStore.updateWidget(newWidget);
     }
   }
 
@@ -96,9 +77,5 @@ export class ToolbarComponent {
       const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, scale};
       this.widgetStore.updateWidget(newWidget);
     }
-  }
-
-  #getInputValue(event: Event): string {
-    return (event.target as HTMLInputElement).value;
   }
 }

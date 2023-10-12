@@ -1,63 +1,115 @@
 <section class="toolbar">
   <div class="toolbar-group">
-    <button class="toolbar-tool" tooltip="Add image" position="bottom" (click)="selectFile.emit()">
-      <app-icon iconName="image" />
-    </button>
+    <app-toolbar-button
+      icon="image"
+      tooltipLabel="Add image"
+      tooltipPosition="bottom"
+      (buttonClick)="selectFile.emit()"
+    />
   </div>
-  <div class="toolbar-group" *ngIf="selectedWidget()">
-    <button class="toolbar-tool" tooltip="Delete item" position="bottom" (click)="deleteWidget()" (keyup.enter)="deleteWidget()">
-      <app-icon iconName="trash" />
-    </button>
-    <button class="toolbar-tool" tooltip="Unselect" position="bottom" (click)="clearSelectedWidget()" (keyup.enter)="clearSelectedWidget()">
-      <app-icon iconName="clear" />
-    </button>
+  <div class="toolbar-group">
+    <app-toolbar-button
+      icon="trash"
+      tooltipLabel="Delete item"
+      tooltipPosition="bottom"
+      [disabled]="!selectedWidget()"
+      (buttonClick)="deleteWidget()"
+    />
+    <app-toolbar-button
+      icon="clear"
+      tooltipLabel="Unselect"
+      tooltipPosition="bottom"
+      [disabled]="!selectedWidget()"
+      (buttonClick)="clearSelectedWidget()"
+    />
   </div>
-  <div class="toolbar-group" *ngIf="selectedWidget()">
-    <button class="toolbar-tool" tooltip="Rotate backward" position="bottom" (click)="rotateWidget('backward')" (keyup.enter)="rotateWidget('backward')">
-      <app-icon iconName="rotateBack" />
-    </button>
-    <button class="toolbar-tool" tooltip="Rotate forward" position="bottom" (click)="rotateWidget('forward')" (keyup.enter)="rotateWidget('forward')">
-      <app-icon iconName="rotateForward" />
-    </button>
+  <div class="toolbar-group">
+    <app-toolbar-button
+      icon="rotateBack"
+      tooltipLabel="Rotate backward"
+      tooltipPosition="bottom"
+      [disabled]="!selectedWidget()"
+      (buttonClick)="rotateWidget('backward')"
+    />
+    <app-toolbar-button
+      icon="rotateForward"
+      tooltipLabel="Rotate forward"
+      tooltipPosition="bottom"
+      [disabled]="!selectedWidget()"
+      (buttonClick)="rotateWidget('forward')"
+    />
   </div>
-  <div class="toolbar-group" *ngIf="selectedWidget()">
-    <button class="toolbar-tool" tooltip="Zoom in" position="bottom" (click)="zoom('in')" (keyup.enter)="zoom('in')">
-      <app-icon iconName="zoomIn" />
-    </button>
-    <button class="toolbar-tool" tooltip="Zoom out" position="bottom" (click)="zoom('out')" (keyup.enter)="zoom('out')">
-      <app-icon iconName="zoomOut" />
-    </button>
+  <div class="toolbar-group">
+    <app-toolbar-button
+      icon="zoomIn"
+      tooltipLabel="Zoom in"
+      tooltipPosition="bottom"
+      [disabled]="!selectedWidget()"
+      (buttonClick)="zoom('in')"
+    />
+    <app-toolbar-button
+      icon="zoomOut"
+      tooltipLabel="Zoom out"
+      tooltipPosition="bottom"
+      [disabled]="!selectedWidget()"
+      (buttonClick)="zoom('out')"
+    />
   </div>
-  <div class="toolbar-group" *ngIf="selectedWidget()">
-    <button class="toolbar-tool" tooltip="Adjust brightness" position="top">
-      <app-icon iconName="brightness" />
-      <span class="toolbar-tool-slider">
-        <input type="range" class="toolbar-tool-slider-input" (change)="brightnessChange($event)" min="0" max="300" [value]="imageBrightness()">
-      </span>
-    </button>
-    <button class="toolbar-tool" tooltip="Adjust blur" position="top">
-      <app-icon iconName="blur" />
-      <span class="toolbar-tool-slider">
-        <input type="range" class="toolbar-tool-slider-input" (change)="blurChange($event)" min="0" max="1000" [value]="imageBlur()">
-      </span>
-    </button>
-    <button class="toolbar-tool" tooltip="Adjust contrast" position="top">
-      <app-icon iconName="contrast" />
-      <span class="toolbar-tool-slider">
-        <input type="range" class="toolbar-tool-slider-input" (change)="contrastChange($event)" min="0" max="500" [value]="imageContrast()">
-      </span>
-    </button>
-    <button class="toolbar-tool" tooltip="Adjust grayscale" position="top">
-      <app-icon iconName="blackWhite" />
-      <span class="toolbar-tool-slider">
-        <input type="range" class="toolbar-tool-slider-input" (change)="grayscaleChange($event)" min="0" max="100" [value]="imageGrayscale()">
-      </span>
-    </button>
-    <button class="toolbar-tool" tooltip="Adjust sepia" position="top">
-      <app-icon iconName="sepia" />
-      <span class="toolbar-tool-slider">
-        <input type="range" class="toolbar-tool-slider-input" (change)="sepiaChange($event)" min="0" max="100" [value]="imageSepia()">
-      </span>
-    </button>
+  <div class="toolbar-group">
+    <app-toolbar-button
+      icon="brightness"
+      tooltipLabel="Adjust brightness"
+      tooltipPosition="top"
+      [disabled]="!selectedWidget()"
+      [slider]="true"
+      [sliderMin]="0"
+      [sliderMax]="300"
+      [sliderValue]="imageBrightness()"
+      (sliderChange)="brightnessChange($event)"
+    />
+    <app-toolbar-button
+      icon="blur"
+      tooltipLabel="Adjust blur"
+      tooltipPosition="top"
+      [disabled]="!selectedWidget()"
+      [slider]="true"
+      [sliderMin]="0"
+      [sliderMax]="1000"
+      [sliderValue]="imageBlur()"
+      (sliderChange)="blurChange($event)"
+    />
+    <app-toolbar-button
+      icon="contrast"
+      tooltipLabel="Adjust contrast"
+      tooltipPosition="top"
+      [disabled]="!selectedWidget()"
+      [slider]="true"
+      [sliderMin]="0"
+      [sliderMax]="500"
+      [sliderValue]="imageContrast()"
+      (sliderChange)="contrastChange($event)"
+    />
+    <app-toolbar-button
+      icon="blackWhite"
+      tooltipLabel="Adjust grayscale"
+      tooltipPosition="top"
+      [disabled]="!selectedWidget()"
+      [slider]="true"
+      [sliderMin]="0"
+      [sliderMax]="100"
+      [sliderValue]="imageGrayscale()"
+      (sliderChange)="grayscaleChange($event)"
+    />
+    <app-toolbar-button
+      icon="sepia"
+      tooltipLabel="Adjust sepia"
+      tooltipPosition="top"
+      [disabled]="!selectedWidget()"
+      [slider]="true"
+      [sliderMin]="0"
+      [sliderMax]="100"
+      [sliderValue]="imageSepia()"
+      (sliderChange)="sepiaChange($event)"
+    />
   </div>
 </section>
