@@ -14,7 +14,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via Jest.
+Run `npm run test` to execute the unit tests via Jest.
 This project uses Spectator and Jest and makes an extensive use of snapshot testing to spot unwanted template changes.
 
 ## Using the app
