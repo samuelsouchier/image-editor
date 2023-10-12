@@ -10,8 +10,9 @@
     "test": "jest --verbose",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "watch": "ng build --watch --configuration development"
-  },
+    "watch": "ng build --watch --configuration development",
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
+},
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
@@ -50,6 +51,7 @@
     "eslint-plugin-deprecation": "^2.0.0",
     "eslint-plugin-ordered-imports": "^0.6.0",
     "eslint-plugin-rxjs": "^5.0.3",
+    "prettier": "^3.0.3",
     "typescript": "~5.1.3"
   }
 }
