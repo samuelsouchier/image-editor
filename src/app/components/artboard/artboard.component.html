@@ -14,7 +14,7 @@
       class="artboard-widget"
       [ngClass]="{selected: selectedWidget()?.id === image.id}"
       [ngStyle]="{
-        'transform': 'rotate(' + image.rotation +'deg)',
+        'transform': 'rotate(' + image.rotation +'deg) scale(' + image.scale + ')',
         'height': image.height + 'px',
       }"
       (click)="selectWidget(image)"
@@ -32,11 +32,8 @@
           'contrast(' + image.filters.contrast + ')',
       }"
       >
-      <button class="artboard-widget-action artboard-widget-move" cdkDragHandle>
+      <button class="artboard-widget-action artboard-widget-move">
         <app-icon iconName="move" />
-      </button>
-      <button class="artboard-widget-action artboard-widget-resize" cdkDragHandle>
-        <app-icon iconName="maximize" />
       </button>
     </button>
   </div>

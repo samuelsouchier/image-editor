@@ -35,7 +35,10 @@
     background: transparent;
     height: fit-content;
     width: fit-content;
-    resize: vertical;
+
+    &:active {
+      cursor: grabbing;
+    }
     &-wrapper {
       height: fit-content;
       width: fit-content;
@@ -56,37 +59,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transform: scale(0.5);
-    }
-    &-move {
       transform-origin: top left;
-      left: 0;
-      top: 0;
-      border-radius: 0 0 $border-radius 0;
-    }
-    &-resize {
-      transform-origin: bottom right;
-      bottom: 0;
-      right: 0;
-      border-radius: $border-radius 0 0 0;
-      pointer-events: none;
-      app-icon {
-        transform: rotate(90deg);
-      }
+      left: 50%;
+      top: 50%;
+      border-radius: $border-radius;
+      transform: translate(-50%, -50%);
     }
     &:hover,
     &.selected {
       box-shadow: 0 2px 6px 2px rgba($color-primary, .2);
       border: 2px solid $color-primary;
+    }
+    &:hover {
       .artboard-widget-action {
         color: $color-white;
-        background: $color-primary;
+        background: rgba($color-white, .3);
+        border: 1px solid rgba($color-primary, .3);
         &:active {
-          cursor: grabbing;
-          background: rgba($color-primary, 0.7);
+          background: rgba($color-white, 0.5);
         }
       }
     }
-
   }
 }

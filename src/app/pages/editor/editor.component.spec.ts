@@ -3,8 +3,8 @@ import { createComponentFactory, Spectator } from '@ngneat/spectator';
 import { mockProvider } from '@ngneat/spectator/jest';
 import * as crypto from 'crypto';
 import { artboardWidgetImageFixture } from '../../../fixtures/artboard-widget-image';
-import { UploadedFile } from '../../model/UploadedFile';
 import { ArtboardWidgetImage } from '../../model/artboard-widget';
+import { UploadedFile } from '../../model/uploaded-file';
 import { WidgetStore } from '../../stores/widget.store';
 
 import { EditorComponent } from './editor.component';

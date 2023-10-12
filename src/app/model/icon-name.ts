@@ -12,6 +12,8 @@ import { rotateForwardIcon } from '../../assets/icons/rotate-forward';
 import { sepiaIcon } from '../../assets/icons/sepia';
 import { trashIcon } from '../../assets/icons/trash';
 import { typeIcon } from '../../assets/icons/type';
+import { zoomInIcon } from '../../assets/icons/zoom-in';
+import { zoomOutIcon } from '../../assets/icons/zoom-out';
 
 export type IconName =
   'image'
@@ -28,6 +30,8 @@ export type IconName =
   | 'contrast'
   | 'blackWhite'
   | 'sepia'
+  | 'zoomIn'
+  | 'zoomOut'
   ;
 export const iconByNameMapper: Record<IconName, string> = {
   'image': imageIcon,
@@ -44,4 +48,6 @@ export const iconByNameMapper: Record<IconName, string> = {
   'contrast': contrastIcon,
   'blackWhite': blackWhiteIcon,
   'sepia': sepiaIcon,
+  'zoomIn': zoomInIcon,
+  'zoomOut': zoomOutIcon,
 };

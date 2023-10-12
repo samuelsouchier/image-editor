@@ -5,7 +5,7 @@ import { ArtboardComponent } from '../../components/artboard/artboard.component'
 import { IconComponent } from '../../components/icon/icon.component';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 import { TooltipDirective } from '../../directives/tooltip.directive';
-import { UploadedFile } from '../../model/UploadedFile';
+import { UploadedFile } from '../../model/uploaded-file';
 import { WidgetStore } from '../../stores/widget.store';
 
 @Component({

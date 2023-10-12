@@ -1,8 +1,8 @@
 import { signal, WritableSignal } from '@angular/core';
 import { createComponentFactory, mockProvider, Spectator } from '@ngneat/spectator/jest';
 import { artboardWidgetImageFixture } from '../../../fixtures/artboard-widget-image';
-import { UploadedFile } from '../../model/UploadedFile';
 import { ArtboardWidgetImage } from '../../model/artboard-widget';
+import { UploadedFile } from '../../model/uploaded-file';
 import { WidgetStore } from '../../stores/widget.store';
 
 import { ArtboardComponent } from './artboard.component';

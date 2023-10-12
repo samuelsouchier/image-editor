@@ -13,10 +13,11 @@ export interface ArtboardWidgetFilters {
 
 export interface ArtboardWidgetImage {
   id: string;
-  src: string;
+  filters: ArtboardWidgetFilters;
+  height: number;
   name: string;
   position: ArtboardWidgetPosition;
-  height: number;
   rotation: number;
-  filters: ArtboardWidgetFilters;
+  src: string;
+  scale: number;
 }

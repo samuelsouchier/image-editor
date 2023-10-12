@@ -21,10 +21,18 @@
     </button>
   </div>
   <div class="toolbar-group" *ngIf="selectedWidget()">
+    <button class="toolbar-tool" tooltip="Zoom in" position="bottom" (click)="zoom('in')" (keyup.enter)="zoom('in')">
+      <app-icon iconName="zoomIn" />
+    </button>
+    <button class="toolbar-tool" tooltip="Zoom out" position="bottom" (click)="zoom('out')" (keyup.enter)="zoom('out')">
+      <app-icon iconName="zoomOut" />
+    </button>
+  </div>
+  <div class="toolbar-group" *ngIf="selectedWidget()">
     <button class="toolbar-tool" tooltip="Adjust brightness" position="top">
       <app-icon iconName="brightness" />
       <span class="toolbar-tool-slider">
-        <input type="range" class="toolbar-tool-slider-input" (change)="brightnessChange($event)" min="0" max="500" [value]="imageBrightness()">
+        <input type="range" class="toolbar-tool-slider-input" (change)="brightnessChange($event)" min="0" max="300" [value]="imageBrightness()">
       </span>
     </button>
     <button class="toolbar-tool" tooltip="Adjust blur" position="top">

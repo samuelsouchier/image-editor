@@ -1,6 +1,6 @@
 import { computed, Injectable, signal, WritableSignal } from '@angular/core';
-import { UploadedFile } from '../model/UploadedFile';
 import { ArtboardWidgetImage } from '../model/artboard-widget';
+import { UploadedFile } from '../model/uploaded-file';
 
 @Injectable({
   providedIn: 'root'

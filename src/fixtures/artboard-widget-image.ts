@@ -16,5 +16,6 @@ export const artboardWidgetImageFixture: ArtboardWidgetImage = {
     contrast: 1,
     blur: 0,
     brightness: 1,
-  }
+  },
+  scale: 1,
 };

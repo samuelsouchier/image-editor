@@ -44,22 +44,23 @@ export class ArtboardComponent {
           const positionRandomizer = Math.floor(Math.random() * 100) * 2;
           const hostPosition = this.artboard.nativeElement.getBoundingClientRect();
           const image: ArtboardWidgetImage = {
-            id: crypto.randomUUID(),
-            src: event.target?.result,
-            name: file.name,
-            position: {
-              x: Math.floor(hostPosition.width / 4) + positionRandomizer,
-              y: Math.floor(hostPosition.height / 4) + positionRandomizer,
-            },
-            height: BASE_IMAGE_HEIGHT,
-            rotation: 0,
             filters: {
               brightness: 1,
               blur: 0,
               contrast: 1,
               sepia: 0,
               grayscale: 0,
-            }
+            },
+            height: BASE_IMAGE_HEIGHT,
+            id: crypto.randomUUID(),
+            name: file.name,
+            position: {
+              x: Math.floor(hostPosition.width / 4) + positionRandomizer,
+              y: Math.floor(hostPosition.height / 4) + positionRandomizer,
+            },
+            rotation: 0,
+            scale: 1,
+            src: event.target?.result,
           };
           this.images.update(images => [...images, image]);
         }

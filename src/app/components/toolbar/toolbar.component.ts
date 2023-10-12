@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, EventEmitter, Output } from '@angular/core';
+import { ZOOM_INCREMENT } from '../../constants';
 import { TooltipDirective } from '../../directives/tooltip.directive';
 import { ArtboardWidgetImage } from '../../model/artboard-widget';
 import { WidgetStore } from '../../stores/widget.store';
@@ -86,6 +87,14 @@ export class ToolbarComponent {
         const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, filters: {...this.selectedWidget()!.filters, grayscale: newGrayscale}};
         this.widgetStore.updateWidget(newWidget);
       }
+    }
+  }
+
+  zoom(direction: 'in' | 'out') {
+    if (this.selectedWidget()) {
+      const scale = (this.selectedWidget()?.scale ?? 1) + ZOOM_INCREMENT * (direction === 'in' ? 1 : -1);
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, scale};
+      this.widgetStore.updateWidget(newWidget);
     }
   }
 
