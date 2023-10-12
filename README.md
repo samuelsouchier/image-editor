@@ -18,8 +18,7 @@ This project uses Spectator and Jest and makes an extensive use of snapshot test
 ## Using the app
 
 The app is quite straightforward : use the toolbar to add one or more pictures.
-Select them and move them thanks to the dedicated handle in the top left corner of each picture;
-Resize them with the resize handle in the bottom right corner.
-More buttons are available in the toolbar above the art board will be visible when a picture is selected.
+Select them and move them with a simple drag and drop;
+More buttons are available in the toolbar above the art board when a picture is selected.
 Hover them to have a hint of their use.
-Enjoy applying various filters to them or delete them as you like.
+Enjoy applying various filters to them, scale them or delete them as you like.
