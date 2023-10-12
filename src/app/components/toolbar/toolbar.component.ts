@@ -26,14 +26,18 @@ export class ToolbarComponent {
 
   constructor(private widgetStore: WidgetStore) {}
 
-  rotateWidget(direction: 'forward' | 'backward') {
-    this.widgetStore.rotateWidget(direction);
-  }
   clearSelectedWidget() {
     this.widgetStore.clearSelectedWidget();
   }
   deleteWidget() {
     this.widgetStore.deleteWidget();
+  }
+  rotateWidget(direction: 'forward' | 'backward') {
+    if (this.selectedWidget()) {
+      const rotation = this.selectedWidget()!.rotation + (90 * (direction === 'forward' ? 1 : -1));
+      const newWidget: ArtboardWidgetImage = {...this.selectedWidget()!, rotation};
+      this.widgetStore.updateWidget(newWidget);
+    }
   }
 
   brightnessChange(inputValue: number) {

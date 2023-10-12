@@ -19,16 +19,6 @@ export class WidgetStore {
     }
   }
 
-  rotateWidget(direction: 'forward' | 'backward') {
-    const rotationModifier = 90 * (direction === 'forward' ? 1 : -1);
-    this.images.update(widgets =>
-      widgets.map(widget =>
-        widget.id === this.selectedWidgetId() ?
-          {...widget, rotation : widget.rotation + rotationModifier} :
-          widget
-      ));
-  }
-
   clearSelectedWidget() {
     this.selectedWidgetId.set(null);
   }

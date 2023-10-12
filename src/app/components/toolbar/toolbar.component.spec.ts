@@ -35,6 +35,14 @@ describe(ToolbarComponent.name, () => {
     expect(selectedWidget().filters.brightness).toEqual(expected);
   });
 
+  it('should rotate widget', () => {
+    const expected = 90;
+    spectator = createComponent();
+    spectator.component.rotateWidget('forward');
+
+    expect(selectedWidget().rotation).toEqual(expected);
+  });
+
   it('should change contrast', () => {
     const expected = 1.5;
     spectator = createComponent();

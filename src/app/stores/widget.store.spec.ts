@@ -37,15 +37,6 @@ describe(WidgetStore.name, () => {
     expect(spectator.service.selectedWidget()).toEqual(expectedWidget);
   });
 
-  it('should rotate a widget', () => {
-    const mockWidget = artboardWidgetImageFixture;
-    const expectedImages: ArtboardWidgetImage[] = [{...artboardWidgetImageFixture, rotation: 90}];
-    spectator.service.selectWidget(mockWidget);
-    spectator.service.rotateWidget('forward');
-
-    expect(spectator.service.images()).toEqual(expectedImages);
-  });
-
   it('should delete a widget', () => {
     const mockWidget = artboardWidgetImageFixture;
     const expectedId = null;
